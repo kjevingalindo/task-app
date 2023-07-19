@@ -14,7 +14,7 @@
       <form (keyup.enter)="submit()" (ngSubmit)="submit()" class="ion-text-center">
 
 
-        <app-custon-input [control]="form.controls.email" type="email" label="Correo" icon="mail-outline"></app-custon-input>
+        <app-custon-input autocomplete="name" [control]="form.controls.email" type="email" label="Correo" icon="mail-outline"></app-custon-input>
         <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.dirty">
           <div *ngIf="form.controls.email.errors?.['required']">Ingresa tu email</div>
           <div *ngIf="form.controls.email.errors?.['email']">Ingresa un email valido</div>
@@ -34,8 +34,8 @@
   
         <div class="sing-up">
           <div>¿No tienes cuenta? </div>
-          <ion-button class="ion-margin-vertical" shape="round">
-            Registrate ahora
+          <ion-button routerLink="sign-up" class="ion-margin-vertical" shape="round">
+            Registrate ahora 
             <ion-icon slot="end" name="person-add-outline"></ion-icon>
           </ion-button>
         </div>

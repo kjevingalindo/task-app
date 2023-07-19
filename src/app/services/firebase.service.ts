@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth} from '@angular/fire/compat/auth';
-import { AngularFirestore} from '@angular/fire/compat/firestore'
-import {User} from '../models/user.model'
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { User } from '../models/user.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,15 +13,15 @@ export class FirebaseService {
   ) { }
 
 
-    // ======= Autentication ========
+  // === Autentication =======
+  login(user: User){
+    return this.auth.signInWithEmailAndPassword(user.email, user.password)
+  }
 
-    login(user: User){
-      return this.auth.signInWithEmailAndPassword(user.email, user.password)
-    }
+  
 
+  signUp(user: User){
+    return this.auth.createUserWithEmailAndPassword(user.email, user.password)
+  }
 
-    signUp(user: User){
-      return this.auth.createUserWithEmailAndPassword(user.email, user.password)
-    }
-
-}
+} 
